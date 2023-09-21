@@ -4,9 +4,15 @@ import React from 'react'
 import ImgContainer from "./ImgContainer";
 import addBlurredDataUrls from "@/lib/getBase64";
 
-export default async function Gallery() {
+type Props = {
+    topic?: string | undefined
+}
 
-    const url = 'https://api.pexels.com/v1/curated'
+export default async function Gallery({ topic }: Props) {
+
+    const url = topic
+        ? `https://api.pexels.com/v1/search?query=${topic}`
+        : 'https://api.pexels.com/v1/curated'
 
     const images: ImageResults | undefined = await fetchImages(url)
 
@@ -17,7 +23,7 @@ export default async function Gallery() {
     return (
         <section className="px-2 my-3 grid gap-2 grid-cols-gallery">
             {photosWithBlur.map(photo => (
-                <ImgContainer  key={photo.id} photo={photo} />
+                <ImgContainer key={photo.id} photo={photo} />
             ))}
         </section>
     )
