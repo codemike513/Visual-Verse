@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+import Search from './Search'
 
 export default function Navbar() {
     return (
@@ -8,6 +9,7 @@ export default function Navbar() {
                 <h1 className='text-2xl sm:text-3xl text-center whitespace-nowrap'>
                     <Link href="/">PhotoRoom</Link>
                 </h1>
+                <Search />
             </nav>
         </header>
     )
