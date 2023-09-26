@@ -5,7 +5,7 @@ import type { Metadata } from 'next'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'PhotoRoom',
+  title: 'Visual Verse',
   description: 'Image Gallery App by Mihir Pesswani',
 }
 
